@@ -32,14 +32,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DetailsActivity"
-            android:exported="false" />
+            android:name=".RandomDogActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
-            android:name=".PlaybackActivity"
-            android:exported="false" />
+            android:name=".BreedSelectionActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
-            android:name=".BrowseErrorActivity"
-            android:exported="false" />
+            android:name=".BreedDetailsActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>
