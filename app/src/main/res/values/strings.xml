@@ -1,3 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Dog Photo App</string>
+    <string name="app_name">TvApplication</string>
+
+    <!-- MainActivity -->
+    <string name="title_app">Dog Photo App</string>
+    <string name="subtitle_app">Select an option to explore</string>
+    <string name="menu_random_title">Random Dog Photos</string>
+    <string name="menu_random_desc">Get random dog photos from any breed</string>
+    <string name="menu_browse_title">Browse by Breed</string>
+    <string name="menu_browse_desc">Explore over 100 dog breeds with photo galleries</string>
+    <string name="instruction_navigate">Use remote to navigate • Press OK to select</string>
+
+    <!-- RandomDogActivity -->
+    <string name="random_dog_title">Random Dog Photos</string>
+    <string name="random_dog_button">Get Another Dog</string>
+    <string name="random_fetching">Fetching adorable dog…</string>
+    <string name="random_press_ok">Press OK to get another adorable dog!</string>
+    <string name="random_failed">Oops! Failed to fetch dog. Press OK to retry</string>
+    <string name="random_network_error">Network error! Press OK to retry</string>
+    <string name="cd_dog_image">Dog image</string>
+
+    <!-- BreedSelectionActivity -->
+    <string name="breed_select_title">Select Dog Breed</string>
+    <string name="failed_load_breeds">Failed to load breeds</string>
+    <string name="network_error">Network error: %1$s</string>
+
+    <!-- BreedAdapter -->
+    <plurals name="subbreed_varieties">
+        <item quantity="one">%d variety</item>
+        <item quantity="other">%d varieties</item>
+    </plurals>
 </resources>
+

@@ -1,7 +1,6 @@
 package com.example.tvapplication
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.Gravity
@@ -11,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.FragmentActivity
+import androidx.core.graphics.toColorInt
 
 class MainActivity : FragmentActivity() {
 
@@ -18,7 +18,7 @@ class MainActivity : FragmentActivity() {
         super.onCreate(savedInstanceState)
         
         val mainLayout = FrameLayout(this).apply {
-            setBackgroundColor(Color.parseColor("#0A0E27"))
+            setBackgroundColor("#0A0E27".toColorInt())
         }
         
         val scrollView = android.widget.ScrollView(this).apply {
@@ -41,24 +41,25 @@ class MainActivity : FragmentActivity() {
         }
         
         val titleText = TextView(this).apply {
-            text = "🐕 Dog Photo App"
+            text = getString(R.string.title_app)
             textSize = 44f
-            setTextColor(Color.WHITE)
+            setTextColor("#FFFFFFFF".toColorInt())
             gravity = Gravity.CENTER
             typeface = android.graphics.Typeface.create(android.graphics.Typeface.DEFAULT, android.graphics.Typeface.BOLD)
-            setShadowLayer(8f, 0f, 4f, Color.parseColor("#80000000"))
+            setShadowLayer(8f, 0f, 4f, "#80000000".toColorInt())
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
             ).apply {
                 bottomMargin = dpToPx(12)
             }
+            contentDescription = getString(R.string.title_app)
         }
         
         val subtitleText = TextView(this).apply {
-            text = "Select an option to explore"
+            text = getString(R.string.subtitle_app)
             textSize = 20f
-            setTextColor(Color.parseColor("#B8C5D6"))
+            setTextColor("#B8C5D6".toColorInt())
             gravity = Gravity.CENTER
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -66,6 +67,7 @@ class MainActivity : FragmentActivity() {
             ).apply {
                 bottomMargin = dpToPx(32)
             }
+            contentDescription = getString(R.string.subtitle_app)
         }
         
         val menuLayout = LinearLayout(this).apply {
@@ -80,17 +82,21 @@ class MainActivity : FragmentActivity() {
         }
         
         val randomDogsButton = createMenuButton(
-            "🎲 Random Dog Photos",
-            "Get random dog photos from any breed",
-            Color.parseColor("#FF6B9D")
-        )
-        
+            getString(R.string.menu_random_title),
+            getString(R.string.menu_random_desc),
+            "#FF6B9D".toColorInt()
+        ).apply {
+            contentDescription = getString(R.string.menu_random_title) + ". " + getString(R.string.menu_random_desc)
+        }
+
         val browseBreedsButton = createMenuButton(
-            "🐕 Browse by Breed",
-            "Explore 100+ dog breeds with photo galleries",
-            Color.parseColor("#6B7FFF")
-        )
-        
+            getString(R.string.menu_browse_title),
+            getString(R.string.menu_browse_desc),
+            "#6B7FFF".toColorInt()
+        ).apply {
+            contentDescription = getString(R.string.menu_browse_title) + ". " + getString(R.string.menu_browse_desc)
+        }
+
         randomDogsButton.setOnClickListener {
             animateButtonPress(randomDogsButton)
             val intent = Intent(this, RandomDogActivity::class.java)
@@ -107,9 +113,9 @@ class MainActivity : FragmentActivity() {
         menuLayout.addView(browseBreedsButton)
         
         val instructionText = TextView(this).apply {
-            text = "Use remote to navigate • Press OK to select"
+            text = getString(R.string.instruction_navigate)
             textSize = 16f
-            setTextColor(Color.parseColor("#B8C5D6"))
+            setTextColor("#B8C5D6".toColorInt())
             gravity = Gravity.CENTER
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -117,6 +123,7 @@ class MainActivity : FragmentActivity() {
             ).apply {
                 topMargin = dpToPx(32)
             }
+            contentDescription = getString(R.string.instruction_navigate)
         }
         
         contentLayout.addView(titleText)
@@ -158,7 +165,7 @@ class MainActivity : FragmentActivity() {
         val titleTextView = TextView(this).apply {
             text = title
             textSize = 26f
-            setTextColor(Color.WHITE)
+            setTextColor("#FFFFFFFF".toColorInt())
             typeface = android.graphics.Typeface.create(android.graphics.Typeface.DEFAULT, android.graphics.Typeface.BOLD)
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -171,7 +178,7 @@ class MainActivity : FragmentActivity() {
         val descriptionTextView = TextView(this).apply {
             text = description
             textSize = 15f
-            setTextColor(Color.parseColor("#E0FFFFFF"))
+            setTextColor("#E0FFFFFF".toColorInt())
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
